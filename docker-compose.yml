@@ -22,8 +22,6 @@ services:
       dockerfile: ./packages/jsreport/docker/default/Dockerfile
     depends_on:
       - mongo
-    env_file:
-      - .env
     environment:
       - TZ=Asia/Yangon
     ports:

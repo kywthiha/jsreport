@@ -78,7 +78,7 @@ WORKDIR /app
 
 ENV PUPPETEER_SKIP_DOWNLOAD true
 
-RUN npm i -g yarn json-merger
+RUN npm i -g --force yarn json-merger
 COPY ./packages/jsreport/server.js server.js
 COPY ./packages/jsreport/index.js index.js
 COPY ./packages/jsreport/package.json package.json

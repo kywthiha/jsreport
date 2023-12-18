@@ -19,7 +19,7 @@ services:
     container_name: jsreport
     build:
       context: ./
-      dockerfile: ./packages/jsreport/docker/default/Dockerfile
+      dockerfile: ./packages/jsreport/docker/default/Dockerfile.local
     depends_on:
       - mongo
     environment:

@@ -33,8 +33,7 @@
       "createSamples": true
     },
     "mongodb-store": {
-      "address": "mongo:27050",
-      "databaseName": "jsreport"
+      "uri":"mongodb://mongo:27017/jsreport"
     }
   },
   "extensionsList": [

@@ -21,12 +21,12 @@ if [ "$(ls -A /jsreport)" ]; then
   rm -f "/app/jsreport.config.json"
   ln -s "/jsreport/jsreport.config.json" "/app/jsreport.config.json"
 
-  chown -R jsreport:jsreport /jsreport
+  # chown -R jsreport:jsreport /jsreport
 fi
 
 if [ "$(id -u)" = '0' ]; then
   # If we are root, run the app as the lower-privilege `jsreport` user
-  exec gosu jsreport node "server.js"  
+  exec gosu node "server.js"  
 else
   # If we're not root, we can't use `gosu` (and don't need to)
   exec node "server.js"

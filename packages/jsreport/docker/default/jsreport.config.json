@@ -1,41 +1,77 @@
 {
-    "httpPort": 5488,
-    "store": {
-        "provider": "fs"
+  "httpPort": 5488,
+  "trustUserCode": true,
+  "store": {
+    "provider": "mongodb"
+  },
+  "blobStorage": {
+    "provider": "mongodb"
+  },
+  "reportTimeout": 60000,
+  "extensions": {
+    "docker-workers": {
+      "enabled": false,
+      "container": {
+        "image": "worker",
+        "memory": "520m",
+        "memorySwap": "720m",
+        "cpus": "0.8"
+      },
+      "numberOfWorkers": 3
     },
-    "blobStorage": {
-        "provider": "fs"
+    "authentication": {
+      "cookieSession": {
+        "secret": "a secret"
+      },
+      "admin": {
+        "username": "admin",
+        "password": "password"
+      },
+      "enabled": false
     },
-    "logger": {
-        "console": {
-            "transport": "console",
-            "level": "debug"
-        },
-        "file": {
-            "transport": "file",
-            "level": "info",
-            "filename": "logs/reporter.log"
-        },
-        "error": {
-            "transport": "file",
-            "level": "error",
-            "filename": "logs/error.log"
-        }
+    "sample-template": {
+      "createSamples": true
     },
-    "trustUserCode": true,
-    "reportTimeout": 60000,
-    "workers": {
-        "numberOfWorkers": 3
-    },
-    "extensions": {
-        "authentication": {
-            "cookieSession": {},
-            "admin": {
-                "username": "admin",
-                "password": "password"
-            },
-            "enabled": false
-        },
-        "sample-template": {}
+    "mongodb-store": {
+      "address": "mongo:27050",
+      "databaseName": "jsreport"
     }
+  },
+  "extensionsList": [
+    "assets",
+    "authentication",
+    "authorization",
+    "base",
+    "browser-client",
+    "child-templates",
+    "chrome-pdf",
+    "cli",
+    "components",
+    "data",
+    "docx",
+    "express",
+    "freeze",
+    "fs-store",
+    "handlebars",
+    "html-to-xlsx",
+    "import-export",
+    "jsrender",
+    "localization",
+    "npm",
+    "pdf-utils",
+    "pptx",
+    "public-templates",
+    "reports",
+    "sample-template",
+    "scheduling",
+    "scripts",
+    "static-pdf",
+    "studio",
+    "studio-theme-dark",
+    "tags",
+    "text",
+    "version-control",
+    "xlsx",
+    "mongodb-store"
+  ]
 }

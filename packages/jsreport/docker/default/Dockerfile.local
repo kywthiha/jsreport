@@ -33,7 +33,7 @@ RUN set -eux; \
     gosu --version; \
     gosu nobody true
 
-RUN addgroup -g "${GID}" -S jsreport && adduser --shell /bin/bash -u "${UID}" -S -G jsreport jsreport
+# RUN addgroup -g "${GID}" -S jsreport && adduser --shell /bin/bash -u "${UID}" -S -G jsreport jsreport
 
 # this condition is useful when the alpine registry contain different latest versions
 # per architecture, if the versions match then just use the same version number on both paths
@@ -66,7 +66,7 @@ RUN mkdir -p /app
 # we need to create the volume and give it expected owner
 # before the VOLUME step in order for the volume to be created with non-root user
 RUN mkdir /jsreport
-RUN chown jsreport:jsreport /jsreport
+# RUN chown jsreport:jsreport /jsreport
 RUN chmod g+s /jsreport
 
 VOLUME ["/jsreport"]

@@ -91,7 +91,7 @@ RUN json-merger -p package.json ./build/workspaces-changes.json -o package.json
 RUN yarn install --production
 
 # this copy of jsreport.config.json is only needed on Dockerfile.local, because it is missing
-COPY ./jsreport.config.json jsreport.config.json
+COPY jsreport.config.json jsreport.config.json
 COPY ./packages/jsreport/docker/default/editConfig.js editConfig.js
 COPY ./packages/jsreport/docker/default/run.sh run.sh
 RUN node editConfig.js

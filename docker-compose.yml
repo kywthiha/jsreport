@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  mongo:
+    container_name: jsreport-mongo-container
+    image: mongo
+    restart: always
+    ports:
+      - "27050:27017"
+    volumes:
+      - jsreport-mongo-data:/data/db
+    networks:
+      - jsreport
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2GB
+  jsreport:
+    container_name: jsreport
+    build:
+      context: ./
+      dockerfile: ./packages/jsreport/docker/default/Dockerfile
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Yangon
+    ports:
+      - "5488:5488"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+    networks:
+      - jsreport
+
+volumes:
+  jsreport-mongo-data:
+
+networks:
+  jsreport:

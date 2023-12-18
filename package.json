@@ -21,6 +21,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "@jsreport/jsreport-mongodb-store": "^4.0.0",
     "@jsreport/studio-dev": "4.0.0",
     "extract-zip": "2.0.1",
     "ignore": "5.2.0",

@@ -2,10 +2,10 @@
   "httpPort": 5488,
   "trustUserCode": true,
   "store": {
-    "provider": "fs"
+    "provider": "mongodb"
   },
   "blobStorage": {
-    "provider": "fs"
+    "provider": "mongodb"
   },
   "reportTimeout": 60000,
   "extensions": {
@@ -31,6 +31,10 @@
     },
     "sample-template": {
       "createSamples": true
+    },
+    "mongodb-store": {
+      "address": "mongo:27050",
+      "databaseName": "jsreport"
     }
   },
   "extensionsList": [
@@ -52,7 +56,6 @@
     "html-to-xlsx",
     "import-export",
     "jsrender",
-    "licensing",
     "localization",
     "npm",
     "pdf-utils",
@@ -68,6 +71,7 @@
     "tags",
     "text",
     "version-control",
-    "xlsx"
+    "xlsx",
+    "mongodb-store"
   ]
 }

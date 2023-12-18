@@ -20,6 +20,7 @@ services:
     build:
       context: ./
       dockerfile: ./packages/jsreport/docker/default/Dockerfile.local
+    command: [ "gosu", "node", "server.js" ]
     depends_on:
       - mongo
     environment:
@@ -37,6 +38,7 @@ services:
 
 volumes:
   jsreport-mongo-data:
+
 
 networks:
   jsreport:

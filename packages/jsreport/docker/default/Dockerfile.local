@@ -65,14 +65,14 @@ RUN mkdir -p /app
 
 # we need to create the volume and give it expected owner
 # before the VOLUME step in order for the volume to be created with non-root user
-RUN mkdir /jsreport
+# RUN mkdir /jsreport
 # RUN chown jsreport:jsreport /jsreport
-RUN chmod g+s /jsreport
+# RUN chmod g+s /jsreport
 
-VOLUME ["/jsreport"]
+# VOLUME ["/jsreport"]
 
-ENV NPM_CONFIG_PREFIX /home/jsreport/.npm-global
-ENV PATH $PATH:/home/jsreport/.npm-global/bin
+# ENV NPM_CONFIG_PREFIX /home/jsreport/.npm-global
+# ENV PATH $PATH:/home/jsreport/.npm-global/bin
 
 WORKDIR /app
 
